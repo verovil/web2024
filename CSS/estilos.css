@@ -1,0 +1,119 @@
+@keyframes loco{
+    0%{background: blue;transform: rotate(10deg);scale(1,1);}
+    20%{background: red;transform: rotate(-10deg);scale(1.5,1.5);}
+    40%{background: gold;transform: rotate(10deg);scale(1,1);}
+    60%{background: silver;transform: rotate(-10deg);scale(1.5,1.5);}
+    80%{background: fuchsia;transform: rotate(20deg);scale(1,1);}
+    90%{background: darkgreen;transform: rotate(-10deg);scale(2,2);}
+    10%{background: purple;transform: rotate(10deg);scale(1,);}
+}
+.contenedor{
+    align-items:center;
+    border:solid 0.1em;
+    display:flex;
+    height:500px;
+    justify-content:space-around;
+}
+
+.contenedor div{
+    border:solid 0.1em;
+    height:400px;
+    width:20%;
+    filter: invert(1);
+    transition: all linear 0.5s;
+}
+
+.contenedor div:hover{
+    background-size: 100% 100%;
+    filter: invert(0);
+}
+
+.hija1{
+    background:url(perro.jpg);
+    background-size:cover;
+}
+
+.hija2{
+    background:url(gato1.png);
+    background-size:cover;
+}
+.hija3{
+    background:url(gato2.jpg);
+    background-size:cover;
+}
+.hija4{
+    background:url(mascotas.jpg);
+    background-size:cover;
+}
+.imprimir{
+    background: lightblue url("printer.png") no-repeat 10px 5px;
+    background-size: 40px 40px;
+    border-radius: 1em;
+    box-shadow: 0.1em 0.2em 0.3em rgba(0 0 0 0.5);
+    display:block;
+    margin: 1em auto;
+    font-style: italic;
+    font-size: 24px;
+    width: 20%;
+    height: 60px;
+}
+.imprimir:hover{
+    cursor: pointer;
+}
+.cupon{
+    display: none;
+    font-size: 48px;
+    font-style: italic;
+    text-align: center;
+    font-weight: bolder;
+
+}
+@media print{
+    /* el color del fondo de la impresión  */
+    body{
+        background: silver;
+    }
+    .hija1,.hija2{
+        display: none;
+    }
+    .contenedor{
+        background-color: orange; 
+        flex-direction: column;
+    }
+    .contenedor div{
+        filter: none;
+        /* background-size: 100% 100%; */
+        width: 50%;
+    }
+    .cupon{
+        display: block;
+    }
+    .imprimir{
+        display: none;
+    }
+}
+@media screen and (orientation: landscape){
+    body{
+        background: rgb(239,217, 15);
+    }
+}
+@media screen and (orientation: portrait){
+    body{
+        background: lightblue;
+    }
+}
+@media screen and (max-width:700px){
+    .contenedor{
+        flex-direction:column;
+        height: auto;
+    }
+    .contenedor div{
+        filter: invert(0);
+        height: 400px;
+        margin-top: 1em;
+        width: 100%;
+    }
+    .contenedor .hija1{
+        animation: loco alternate infinite 2s;
+    }
+} 
